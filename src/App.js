@@ -15,6 +15,7 @@ class NameForm extends React.Component {
   }
 
   handleChange(event) {
+    event.preventDefault();
     this.setState({ firstName: event.target.firstName });
     this.setState({ lastName: event.target.lastName });
     this.setState({ email: event.target.email });
