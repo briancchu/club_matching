@@ -4,18 +4,24 @@ import './App.css';
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: ''
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ firstName: event.target.firstName });
+    this.setState({ lastName: event.target.lastName });
+    this.setState({ email: event.target.email });
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+    alert('Form submitted');
     event.preventDefault();
   }
 
@@ -23,8 +29,16 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          First Name:
+          <input type="text" value={this.state.firstName} onChange={this.handleChange} />
+        </label>
+        <label>
+          Last Name:
+          <input type="text" value={this.state.lastName} onChange={this.handleChange} />
+        </label>
+        <label>
+          Email:
+          <input type="text" value={this.state.email} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
