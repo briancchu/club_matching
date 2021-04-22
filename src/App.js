@@ -40,6 +40,7 @@ class NameForm extends React.Component {
           <input type="text" onChange={(event) => this.handleChange(event, this.state.email)} />
         </label>
         <input type="submit" value="Submit" />
+        <input type="checkbox" />
       </form>
     );
   }
