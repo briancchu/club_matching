@@ -14,13 +14,24 @@ class NameForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event, state) {
+  handleChange(event, str) {
     event.preventDefault();
-    this.setState({ state: event.target.value });
+    if (str === "first") {
+      this.setState({ firstName: event.target.value });
+    }
+    else if (str === "last") {
+      this.setState({ lastName: event.target.value });
+    }
+    else {
+      this.setState({ email: event.target.value });
+    }
   }
 
   handleSubmit(event) {
     alert('Form submitted');
+    console.log(this.state.firstName)
+    console.log(this.state.lastName)
+    console.log(this.state.email)
     event.preventDefault();
   }
 
@@ -29,15 +40,15 @@ class NameForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           First Name:
-          <input type="text" onChange={(event) => this.handleChange(event, this.state.firstName)} />
+          <input type="text" onChange={(event) => this.handleChange(event, "first")} />
         </label>
         <label>
           Last Name:
-          <input type="text" onChange={(event) => this.handleChange(event, this.state.lastName)} />
+          <input type="text" onChange={(event) => this.handleChange(event, "last")} />
         </label>
         <label>
           Email:
-          <input type="text" onChange={(event) => this.handleChange(event, this.state.email)} />
+          <input type="text" onChange={(event) => this.handleChange(event, "email")} />
         </label>
         <input type="submit" value="Submit" />
       </form>
