@@ -27,20 +27,26 @@ class NameForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          First Name:
-          <input type="text" onChange={(event) => this.handleChange(event, this.state.firstName)} />
-        </label>
-        <label>
-          Last Name:
-          <input type="text" onChange={(event) => this.handleChange(event, this.state.lastName)} />
-        </label>
-        <label>
-          Email:
-          <input type="text" onChange={(event) => this.handleChange(event, this.state.email)} />
-        </label>
-        <input type="submit" value="Submit" />
-        <input type="checkbox" />
+        <div class="field-container">
+          <label>
+            First Name:
+            <input type="text" onChange={(event) => this.handleChange(event, this.state.firstName)} />
+          </label>
+          <label>
+            Last Name:
+            <input type="text" onChange={(event) => this.handleChange(event, this.state.lastName)} />
+          </label>
+          <label>
+            Email:
+            <input type="text" onChange={(event) => this.handleChange(event, this.state.email)} />
+          </label>
+        </div>
+        <div class="submit-container">
+          <input type="submit" value="Submit" />
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" />
+        </div>
       </form>
     );
   }
