@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css';
+import Tabletop from 'tabletop';
 
 class NameForm extends React.Component {
   constructor(props) {
@@ -7,11 +8,22 @@ class NameForm extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
-      email: ''
+      email: '',
+      data: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    Tabletop.init({
+      key: '1I0phc1Gs_mFcq1MgqTe296aT-hQAfi4QLjH25JQLs1Q',
+      callback: googleData => {
+        console.log('google sheet data --->', googleData)
+      },
+      simpleSheet: true
+    })
   }
 
   handleChange(event, str) {
@@ -36,6 +48,7 @@ class NameForm extends React.Component {
   }
 
   render() {
+    const { data } = this.state
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
@@ -52,6 +65,17 @@ class NameForm extends React.Component {
         </label>
         <input type="submit" value="Submit" />
         <input type="checkbox" />
+        {
+          data.map(obj => {
+            return (
+              <div key={obj.person}>
+                <p>{obj.firstName}</p>
+                <p>{obj.lastName}</p>
+                <p>{obj.email}</p>
+              </div>
+            )
+          })
+        }
       </form>
     );
   }
