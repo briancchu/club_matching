@@ -27,7 +27,7 @@ class NameForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div class="field-container">
+        <div className="field-container">
           <label>
             First Name:
             <input type="text" onChange={(event) => this.handleChange(event, this.state.firstName)} />
@@ -41,10 +41,10 @@ class NameForm extends React.Component {
             <input type="text" onChange={(event) => this.handleChange(event, this.state.email)} />
           </label>
         </div>
-        <div class="submit-container">
+        <div className="submit-container">
           <input type="submit" value="Submit" />
         </div>
-        <div class="checkbox-container">
+        <div className="checkbox-container">
           <input type="checkbox" />
         </div>
       </form>
