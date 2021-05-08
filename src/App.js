@@ -51,31 +51,32 @@ class NameForm extends React.Component {
     const { data } = this.state
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          First Name:
-          <input type="text" onChange={(event) => this.handleChange(event, "first")} />
-        </label>
-        <label>
-          Last Name:
-          <input type="text" onChange={(event) => this.handleChange(event, "last")} />
-        </label>
-        <label>
-          Email:
-          <input type="text" onChange={(event) => this.handleChange(event, "email")} />
-        </label>
-        <input type="submit" value="Submit" />
-        <input type="checkbox" />
-        {
-          data.map(obj => {
-            return (
-              <div key={obj.person}>
-                <p>{obj.firstName}</p>
-                <p>{obj.lastName}</p>
-                <p>{obj.email}</p>
-              </div>
-            )
-          })
-        }
+        <div className="field-container">
+          <div>
+            <label>
+              First Name:
+            <input type="text" onChange={(event) => this.handleChange(event, "first")} />
+            </label>
+          </div>
+          <div>
+            <label>
+              Last Name:
+            <input type="text" onChange={(event) => this.handleChange(event, "last")} />
+            </label>
+          </div>
+          <div>
+            <label>
+              Email:
+            <input type="text" onChange={(event) => this.handleChange(event, "email")} />
+            </label>
+          </div>
+        </div>
+        <div className="submit-container">
+          <input type="submit" value="Submit" />
+        </div>
+        <div className="checkbox-container">
+          <input type="checkbox" />
+        </div>
       </form>
     );
   }
